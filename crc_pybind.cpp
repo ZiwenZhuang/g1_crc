@@ -3,7 +3,6 @@
 // #include <unitree/idl/hg/LowCmd_.hpp> // Seems not needed. Without this, can compile on system with no unitree_ros2
 
 namespace py = pybind11;
-#pragma pack(1)
 
 typedef struct
 {
@@ -68,7 +67,7 @@ uint32_t get_crc(py::object msg)
     raw.mode_machine = py::cast<uint8_t>(msg.attr("mode_machine"));
 
     std::list<py::object> motor_cmds = py::cast<std::list<py::object>>(msg.attr("motor_cmd"));
-    for (int i = 0; i < 35; i++)
+    for (int i = 0; i < 29; i++)
     {
         py::object motor_cmd = motor_cmds.front();
         uint8_t mode = py::cast<uint8_t>(motor_cmd.attr("mode"));
@@ -85,8 +84,8 @@ uint32_t get_crc(py::object msg)
         raw.motor_cmd[i].Kd = Kd;
         motor_cmds.pop_front();
     }
-    std::array<uint32_t, 4> reserve = py::cast<std::array<uint32_t, 4>>(msg.attr("reserve"));
-    memcpy(&raw.reserve, &reserve, 4);
+    // std::array<uint32_t, 4> reserve = py::cast<std::array<uint32_t, 4>>(msg.attr("reserve"));
+    // memcpy(&raw.reserve, &reserve, 4);
       
     uint32_t crc = crc32_core((uint32_t *)&raw, (sizeof(LowCmd)>>2)-1);
     return crc;
