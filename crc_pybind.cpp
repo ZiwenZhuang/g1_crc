@@ -1,6 +1,6 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
-#include <unitree/idl/hg/LowCmd_.hpp>
+// #include <unitree/idl/hg/LowCmd_.hpp> // Seems not needed. Without this, can compile on system with no unitree_ros2
 
 namespace py = pybind11;
 #pragma pack(1)

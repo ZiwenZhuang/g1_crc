@@ -15,3 +15,15 @@ mkdir build && cd build
 cmake ..
 make
 ```
+
+# NOTE
+When compiling on MAC, you need to manually specify the python include path and pybind11 path.
+Use `cmake` command as follows
+```bash
+cmake -Dpybind11_DIR=/opt/miniconda3/lib/python3.12/site-packages/pybind11/share/cmake/pybind11 -DPYTHON_INCLUDE_DIRS=/opt/miniconda3/include/python3.12 ..
+```
+```bash
+cmake -Dpybind11_DIR=/Users/leo/.local/share/mamba/envs/ros_env/lib/python3.11/site-packages/pybind11/share/cmake/pybind11 -DPYTHON_INCLUDE_DIRS=/Users/leo/.local/share/mamba/envs/ros_env/include/python3.11 ..
+```
+
+# TODO: check how to access `unitree/idl/hg/LowCmd_.hpp` refer to thinkpad laptop

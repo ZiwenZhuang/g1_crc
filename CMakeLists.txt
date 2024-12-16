@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.5)
 project(crc_module)
 
-find_package(pybind11 REQUIRED PATHS /home/unitree/.local/lib/python3.8/site-packages/pybind11/share/cmake/pybind11 NO_DEFAULT_PATH)
-# find_package(pybind11 REQUIRED)
-find_package(unitree_sdk2 REQUIRED)
+# find_package(pybind11 REQUIRED PATHS /home/unitree/.local/lib/python3.8/site-packages/pybind11/share/cmake/pybind11 NO_DEFAULT_PATH)
+# find_package(pybind11 REQUIRED PATHS /opt/miniconda3/lib/python3.12/site-packages/pybind11/include NO_DEFAULT_PATH)
+find_package(pybind11 REQUIRED)
 
 add_library(crc_module MODULE crc_pybind.cpp)
 include_directories(/usr/local/include/ddscxx /usr/local/include/iceoryx/v2.0.2)
